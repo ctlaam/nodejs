@@ -5,6 +5,7 @@ router.get("/", (req, res) => {
   res.send("GET users");
 });
 
+
 router.post("/login", (req, res) => {
   res.send("POST login users");
 });
