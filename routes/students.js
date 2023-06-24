@@ -1,10 +1,9 @@
 import express from "express";
+import { studentController } from "../controllers/index.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("GET student");
-});
+router.get("/", studentController.getAllStudent);
 
 router.get("/:id", (req, res) => {
   res.send("GET student by id" + req.params?.id);
