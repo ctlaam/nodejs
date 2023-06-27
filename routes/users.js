@@ -14,4 +14,6 @@ router.post(
   userController.login
 );
 
+router.post("/register", userController.resgister);
+
 export default router;
