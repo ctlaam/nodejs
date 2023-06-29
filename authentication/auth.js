@@ -1,9 +1,12 @@
 import jwt from "jsonwebtoken";
 
 export default function checkToken(req, res, next) {
+  console.log(jwt);
   // by pass login user
+  console.log(req.url);
   if (req.url == "/user/login" || req.url == "/user/register") {
     next();
+    return;
   }
   const tokenArray = req.headers?.authorization?.split("Bearer ");
   const token = tokenArray[1];
@@ -13,12 +16,14 @@ export default function checkToken(req, res, next) {
     console.log(isExpired);
     if (!isExpired) {
       next();
+      return;
     } else {
       res.status(404).json({
         message: "Token is expired",
       });
     }
   } catch (error) {
+    console.log(error,'error');
     res.status(404).json({
       message: "Failed",
     });

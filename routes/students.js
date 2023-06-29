@@ -9,8 +9,6 @@ router.get("/:id", (req, res) => {
   res.send("GET student by id" + req.params?.id);
 });
 
-router.post("/insert", (req, res) => {
-  res.send("nsert student");
-});
+router.post("/insert", studentController.insertStudent);
 
 export default router;

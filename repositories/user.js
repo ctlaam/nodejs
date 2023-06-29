@@ -20,7 +20,7 @@ const login = async ({ email, password }) => {
         },
         process.env.JWT_SECRET,
         {
-          expiresIn: "10 days", // 10 ngày
+          expiresIn: "10d", // 10 ngày
         }
       );
       return {
